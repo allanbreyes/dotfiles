@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [ "$*" == "" ]; then
+    echo "usage: <command> [<arg>]"
+    echo
+    echo "commands:"
+    echo "   down    Disconnects from set VPN"
+    echo "   ls      Lists VPNs via nmcli and grep"
+    echo "   set     Sets target VPN"
+    echo "   status  Shows the current VPN status"
+    echo "   up      Connects to set VPN"
+elif [ "$1" == "ls" ]; then
+    nmcli con | grep vpn | grep "$VPN_ID"
+    nmcli con | grep vpn | grep -v "$VPN_ID"
+elif [ "$1" == "up" ]; then
+    echo "Attempting to connect to VPN: $VPN_ID"
+    nmcli con up id $VPN_ID
+elif [ "$1" == "down" ]; then
+    nmcli con down id $VPN_ID
+elif [ "$1" == "set" ]; then
+    export VPN_ID="$2"
+elif [ "$1" == "status" ]; then
+    match=`nmcli con show --active | grep vpn | wc -l`
+    if [ $match -ne 0 ]; then
+        echo "Connected to:"
+        nmcli con show --active | grep vpn
+    else
+        echo "VPN disconnected: $VPN_ID"
+    fi
+else
+    echo "vpn: incorrect arguments: $*"
+    vpn
+fi
+
