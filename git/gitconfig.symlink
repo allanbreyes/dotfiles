@@ -5,6 +5,12 @@
         protocol = https
 [alias]
         co = checkout
+        cm = commit -m
+        cam = commit -am
+        st = status -s
+        lg = log --oneline --decorate --all --graph
+        unstage = reset HEAD --
+        undo = reset --soft HEAD^
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
@@ -26,8 +32,7 @@
 [help]
         autocorrect = 1
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
         default = simple
+[url "git://github.com/"]
+        insteadOf = gh:
+        insteadOf = github:
