@@ -1,6 +1,4 @@
 autoload colors && colors
-# cheers, @ehrenmurdick
-# http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
 if (( $+commands[git] ))
 then
@@ -8,6 +6,8 @@ then
 else
   git="/usr/bin/git"
 fi
+
+local current_dir='${PWD/#$HOME/~}'
 
 git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
@@ -46,34 +46,21 @@ need_push () {
   fi
 }
 
-ruby_version() {
-  if (( $+commands[rbenv] ))
-  then
-    echo "$(rbenv version | awk '{print $1}')"
-  fi
-
-  if (( $+commands[rvm-prompt] ))
-  then
-    echo "$(rvm-prompt | awk '{print $1}')"
-  fi
-}
-
-rb_prompt() {
-  if ! [[ -z "$(ruby_version)" ]]
-  then
-    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
-  else
-    echo ""
-  fi
-}
-
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  echo "%{$fg_bold[yellow]%}${PWD/#$HOME/~}%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT="
+%{$fg[cyan]%}%n\
+%{$fg[white]%}@\
+%{$fg[green]%}%m\
+%{$fg[white]%}: \
+%{$fg_bold[yellow]%}${current_dir}%{$reset_color%} \
+$(git_dirty)$(need_push)
+%{$fg_bold[red]%}$ %{$reset_color%}"
+
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+  export RPROMPT="%{$terminfo[bold]$fg[blue]%}%(1j.%j.) %{$reset_color%}%{$fg[grey]%}[%*]%{$reset_color%}"
 }
 
 precmd() {
