@@ -7,7 +7,6 @@
         green: 73
         red: 214
     fonts: {}
-  "atom-ternjs": {}
   autosave:
     enabled: true
   core:
@@ -15,8 +14,7 @@
     disabledPackages: [
       "minimap"
     ]
-    excludeVcsIgnoredPaths: false
-    projectHome: "/home/allan/Workspace"
+    excludeVcsIgnoredPaths: true
     themes: [
       "one-dark-ui"
       "monokai"
@@ -31,8 +29,6 @@
     invisibles: {}
     scrollPastEnd: true
     showInvisibles: true
-  "exception-reporting":
-    userId: "863ec07d-08a4-c36d-c936-6ef76f7d343d"
   "file-icons":
     forceShow: true
   linter:
