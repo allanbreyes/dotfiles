@@ -1,0 +1,88 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+// style the background color of the tree view
+.tree-view {
+  // background-color: whitesmoke;
+}
+
+// style the background and foreground colors on the atom-text-editor-element itself
+atom-text-editor {
+  // color: white;
+  background-color: #222;
+}
+.tab-bar {
+  background-color: #2d2d2d;
+}
+
+// to style other content in the text editor's shadow DOM, use the ::shadow expression
+atom-text-editor::shadow {
+  .cursor {
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  .cursor-line.line {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+  .highlight-column {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .wrap-guide {
+    background-color: rgba(248, 100, 100, 0.8);
+  }
+}
+
+// atom-text-editor::shadow .cursor-line.line {
+//   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+// }
+
+// hide vertical scrollbars
+atom-text-editor .vertical-scrollbar,
+atom-text-editor::shadow .vertical-scrollbar,
+atom-text-editor .vertical-scrollbar,
+atom-text-editor::shadow .horizontal-scrollbar {
+  opacity: 0.25;
+  // width: 0;
+}
+atom-text-editor .scrollbar-corner,
+atom-text-editor::shadow .scrollbar-corner {
+  display: none;
+}
+
+atom-text-editor,
+atom-text-editor::shadow {
+  padding: 0;
+  opacity: 0.75;
+  &.editor.is-focused {
+    opacity: 1;
+  }
+}
+
+atom-text-editor .gutter,
+atom-text-editor::shadow .gutter {
+  background: #222;
+}
+
+atom-panel,
+atom-panel::shadow {
+  #linter-panel {
+    background: #222;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #777;
+  }
+  .gist {
+    atom-text-editor .text,
+    atom-text-editor::shadow .text {
+      color: white;
+    }
+  }
+}

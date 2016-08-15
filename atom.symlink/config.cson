@@ -1,39 +1,76 @@
 "*":
+  "atom-material-ui":
+    colors:
+      abaseColor:
+        alpha: 1
+        blue: 55
+        green: 73
+        red: 214
+    fonts: {}
+  "atom-ternjs": {}
+  autosave:
+    enabled: true
   core:
+    autoHideMenuBar: true
     disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
+      "minimap"
     ]
-    followSymlinks: false
-    hideGitIgnoredFiles: true
-    ignoredNames: [
-      ".bundle"
-      ".git"
-      "log"
-      "repositories"
-      "tmp"
-      "vendor"
-    ]
+    excludeVcsIgnoredPaths: false
+    projectHome: "/home/allan/Workspace"
     themes: [
-      "unity-ui"
-      "glacier-syntax"
+      "one-dark-ui"
+      "monokai"
+    ]
+  date:
+    dateFormat: "YYYYMMDD"
+  "disable-keybindings":
+    prefixKeys: [
+      "ctrl-k"
     ]
   editor:
-    fontFamily: "Menlo"
     invisibles: {}
-    showIndentGuide: true
-    softWrapAtPreferredLineLength: true
-  "go-plus":
-    goPath: "/Users/holman/Code/go"
-  "release-notes":
-    viewedVersion: "0.89.0"
-  "spell-check":
-    grammars: [
-      "text.plain"
-      "source.gfm"
-      "text.git-commit"
-      "text.html.basic"
+    scrollPastEnd: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "863ec07d-08a4-c36d-c936-6ef76f7d343d"
+  "file-icons":
+    forceShow: true
+  linter:
+    showErrorTabLine: true
+    showErrorTabProject: false
+    statusIconScope: "File"
+  "markdown-preview-plus": {}
+  minimap: {}
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "toggle-packages":
+    togglePackages: [
+      "autocomplete-plus"
+      "linter"
+      "vim-mode"
     ]
+  "tree-view": {}
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false
+".c.source":
+  editor:
+    tabLength: 4
+".gfm.source":
+  editor:
+    showInvisibles: false
+    softWrap: true
+    tabLength: 4
+".go.source":
+  editor:
+    tabLength: 4
+".java.source":
+  editor:
+    tabLength: 4
+".python.source":
+  editor:
+    tabLength: 4
+".shell.source":
+  editor:
+    tabLength: 4
