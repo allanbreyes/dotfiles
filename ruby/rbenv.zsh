@@ -1,5 +1,2 @@
-# init according to man page
-if (( $+commands[rbenv] ))
-then
-  eval "$(rbenv init -)"
-fi
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+eval "$(rbenv init -)"

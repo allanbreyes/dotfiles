@@ -1,4 +1,5 @@
 alias reload!='. ~/.zshrc'
+alias r='reload!'
 
 alias cls='clear' # Good 'ol Clear Screen command
 
@@ -38,3 +39,10 @@ alias clip='xclip -selection clipboard'
 alias e='exit'
 alias o='xdg-open'
 alias x='exit'
+
+# version managers
+versions() {
+    { echo "\e[1;32mNode.js\e[0m"; nvm version | sed 's/v//'; } | sed -e 'N;s/\n/\t/'
+    { echo "\e[1;34mPython\e[0m"; pyenv version | sed 's/\s\(.*\)//'; } | sed -e 'N;s/\n/\t/'
+    { echo "\e[1;31mRuby\e[0m"; rbenv version | sed 's/\s\(.*\)//'; } | sed -e 'N;s/\n/\t/'
+}
