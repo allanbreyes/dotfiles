@@ -39,4 +39,7 @@ do
   source $file
 done
 
+# notifications for long commands
+[ -e $ZSH/zsh/plugins/notifyosd.zsh ] && . $ZSH/zsh/plugins/notifyosd.zsh
+
 unset config_files
