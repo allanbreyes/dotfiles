@@ -36,8 +36,9 @@ alias serve='python -m SimpleHTTPServer'
 alias clip='xclip -selection clipboard'
 
 # shorthand
-alias e='exit'
+alias d='tmux detach'
 alias o='xdg-open'
+alias v='vim'
 alias x='exit'
 
 # version managers

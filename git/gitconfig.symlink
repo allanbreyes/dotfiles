@@ -4,13 +4,21 @@
 [hub]
         protocol = https
 [alias]
-        co = checkout
-        cm = commit -m
+        a = add
+        b = branch
+        c = commit
+        ca = commit -a
         cam = commit -am
-        st = status -s
-        lg = log --oneline --decorate --all --graph
-        unstage = reset HEAD --
+        cb = gopy-branch-name
+        cm = commit -m
+        co = checkout
+        l = pull --prune
+        lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+        p = push origin HEAD
+        s = status -sb
+        st = status -sb
         undo = reset --soft HEAD^
+        unstage = reset HEAD --
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
