@@ -14,9 +14,9 @@ elif [ "$1" == "ls" ]; then
     nmcli con | grep vpn | grep -v "$VPN_ID"
 elif [ "$1" == "up" ]; then
     echo "Attempting to connect to VPN: $VPN_ID"
-    nmcli con up id $VPN_ID
+    nmcli con up id "$VPN_ID"
 elif [ "$1" == "down" ]; then
-    nmcli con down id $VPN_ID
+    nmcli con down id "$VPN_ID"
 elif [ "$1" == "set" ]; then
     export VPN_ID="$2"
 elif [ "$1" == "status" ]; then
