@@ -25,11 +25,11 @@ function notifyosd-precmd() {
         fi
         if [ $retval -gt 0 ]; then
             cmdstat="with warning"
-            sndstat="/usr/share/sounds/ubuntu/stereo/dialog-warning.ogg"
+            sndstat="/usr/share/sounds/freedesktop/stereo/dialog-warning.oga"
             urgency="critical"
         else
             cmdstat="successfully"
-            sndstat="/usr/share/sounds/ubuntu/stereo/message.ogg"
+            sndstat="/usr/share/sounds/freedesktop/stereo/dialog-information.oga"
             urgency="normal"
         fi
         if [ ! -z "$cmd" -a $cmd_secs -gt 10 -a "$window_id_before" != "$(active-window-id)" ]; then
