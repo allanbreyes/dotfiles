@@ -11,10 +11,9 @@ elif [ "$1" == "search" ]; then
     shift
     apt-cache search "$@"
 elif [ "$1" == "show"   ]; then
-    echo "\e[1;32mdpkg -s $1\e[0m"
-    dpkg -s $1
-    echo "\e[1;32mapt-cache show $1\e[0m"
-    apt-cache show $1
+    shift
+    dpkg -s $@
+    apt-cache show $@
 elif [ "$1" == "update" ]; then
     sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean
 else
