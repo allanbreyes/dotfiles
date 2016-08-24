@@ -5,10 +5,49 @@ require 'rubygems'
 
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
-
 IRB.conf[:PROMPT_MODE] = :SIMPLE
-
 IRB.conf[:AUTO_INDENT] = true
+
+def unbundled_require(gem)
+  loaded = false
+
+  if defined?(::Bundler)
+    Gem.path.each do |gems_path|
+      gem_path = Dir.glob("#{gems_path}/gems/#{gem}*").last
+      unless gem_path.nil?
+        $LOAD_PATH << "#{gem_path}/lib"
+        require gem
+        loaded = true
+      end
+    end
+  else
+    require gem
+    loaded = true
+  end
+
+  raise(LoadError, "couldn't find #{gem}") unless loaded
+
+  loaded
+end
+
+def load_gem(gem, &block)
+  if unbundled_require gem
+    yield if block_given?
+  end
+rescue StandardError => err
+  warn "Couldn't load #{gem}: #{err}"
+end
+
+load_gem 'wirble' do
+  Wirble.init(skip_prompt: true, skip_history: true)
+  Wirble.colorize
+end
+
+load_gem 'awesome_print'
+
+load_gem 'hirb' do
+  Hirb.enable
+end
 
 class Object
   # list methods which aren't in superclass
@@ -35,7 +74,7 @@ end
 # clipboard (if you're on macOS).
 def cop
   last_value = IRB.CurrentContext.last_value
-  %x[echo '#{last_value}' | pbcopy]
+  %x[echo '#{last_value}' | clip]
   "copied \`#{last_value}' to your clipboard"
 end
 
