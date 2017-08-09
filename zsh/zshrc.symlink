@@ -43,3 +43,6 @@ done
 [ -e $ZSH/zsh/plugins/notifyosd.zsh ] && . $ZSH/zsh/plugins/notifyosd.zsh
 
 unset config_files
+
+# Prevent flow control
+stty -ixon

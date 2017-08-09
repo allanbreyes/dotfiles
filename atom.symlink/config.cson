@@ -13,8 +13,20 @@
     autoHideMenuBar: true
     disabledPackages: [
       "minimap"
+      "highlight-column"
     ]
     excludeVcsIgnoredPaths: true
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      "*.pyc"
+    ]
+    telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "monokai"

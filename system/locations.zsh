@@ -11,6 +11,7 @@ navigate() {
 
 alias ~="navigate ~"
 alias docs="navigate ~/Documents"
+alias dl="navigate ~/Downloads"
 alias dt="navigate ~/Desktop"
-alias home="navigate ~"
+alias h="navigate ~"
 alias ws="navigate ~/Workspace"
