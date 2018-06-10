@@ -1,17 +1,26 @@
-navigate() {
-    if [ -z "$2" ]
-    then
-        cd $1
-    else
-        location=$1
-        shift
-        cd "${location}/$@"
-    fi
+export DOCUMENTS="$HOME/Documents"
+export DOWNLOADS="$HOME/Downloads"
+export DESKTOP="$HOME/Desktop"
+
+local cd_or_open() {
+  if [[ -d $1 ]]; then
+    cd $1
+  else
+    xdg-open $1
+  fi
 }
 
-alias ~="navigate ~"
-alias docs="navigate ~/Documents"
-alias dl="navigate ~/Downloads"
-alias dt="navigate ~/Desktop"
-alias h="navigate ~"
-alias ws="navigate ~/Workspace"
+docs() {
+  cd_or_open "$DOCUMENTS/$1"
+}
+compdef "_files -W '$DOCUMENTS'" docs
+
+dl() {
+  cd_or_open "$DOWNLOADS/$1"
+}
+compdef "_files -W '$DOWNLOADS'" dl
+
+dt() {
+  cd_or_open "$DESKTOP/$1"
+}
+compdef "_files -W '$DESKTOP'" dt
