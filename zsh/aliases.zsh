@@ -32,7 +32,7 @@ alias chgrp='chgrp --preserve-root'
 # miscellaneous aliases
 alias ports='netstat -tulanp'
 alias tree='tree -C --prune'
-alias serve='python -m SimpleHTTPServer'
+alias serve='python -m http.server'
 alias clip='xclip -selection clipboard'
 
 # shorthand
