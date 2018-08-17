@@ -1,3 +1,4 @@
 .idea/
 git/gitconfig.local.symlink
 system/env.local.zsh
+/local
