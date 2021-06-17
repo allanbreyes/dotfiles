@@ -9,6 +9,9 @@ alias l='ls -la'
 alias diff='colordiff'
 alias grep='grep --color=auto'
 
+# exa replacement
+alias ls='exa'
+
 # directory navigation
 alias cd..='cd ..'
 alias ..='cd ..'

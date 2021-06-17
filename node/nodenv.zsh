@@ -3,8 +3,3 @@ nodenv() {
   eval "$(command nodenv init -)"
   nodenv "$@"
 }
-
-if ! [ -x "$(command -v nvm)" ]; then
-  alias nvm="echo 'nvm is disabled'"
-fi
-
