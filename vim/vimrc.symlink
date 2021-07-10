@@ -159,9 +159,5 @@ if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 
-" Remap escape
-imap jk <esc>
-imap kj <esc>
-
 " Disable X clipboard
 set clipboard=exclude:.*
